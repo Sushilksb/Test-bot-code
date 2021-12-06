@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 //import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ButtonForLiftMotor;
+import frc.robot.commands.DriveWithANumber;
 import frc.robot.commands.DriveWithButton;
 import frc.robot.commands.DriveWithJoystick;
 import frc.robot.subsystems.DriveSystem;
@@ -38,6 +39,8 @@ public class RobotContainer {
   private JoystickButton spinElevator;
   private ButtonForLiftMotor elevatorSpin;
 
+  private DriveWithANumber autonomousDrive;
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -55,6 +58,8 @@ public class RobotContainer {
     joystickSpin = new DriveWithJoystick(spinSubSystem, joy);
 
     spinSubSystem.setDefaultCommand(joystickSpin);
+
+    autonomousDrive = new DriveWithANumber(spinSubSystem, 0.5);
 
     configureButtonBindings();
   }
@@ -77,6 +82,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return new InstantCommand();
+    return autonomousDrive.withTimeout(5);
   }
 }
