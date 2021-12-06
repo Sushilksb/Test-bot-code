@@ -31,8 +31,8 @@ public class DriveWithJoystick extends CommandBase {
   public void execute() {
     //motorSpin.spinningMotor(0.5);
     // && joy.getY(Hand.kRight) < -0.15
-    boolean rightDeadzone = joy.getY(Hand.kRight) >= 0.2 || joy.getY(Hand.kRight) >= -0.2;
-    boolean leftDeadzone = joy.getY(Hand.kLeft) >= 0.2 || joy.getY(Hand.kLeft) >= -0.2;
+    boolean rightDeadzone = joy.getY(Hand.kRight) >= 0.2 || joy.getY(Hand.kRight) <= -0.2;
+    boolean leftDeadzone = joy.getY(Hand.kLeft) >= 0.2 || joy.getY(Hand.kLeft) <= -0.2;
     if ((leftDeadzone) || (rightDeadzone))
     {
       motorSpin.differentialTank(joy.getY(Hand.kLeft), joy.getY(Hand.kRight));
