@@ -17,7 +17,7 @@ public final class Constants {
     public static final int RIGHT_SIDE_MOTOR = 6;
     public static final int LEFT_SIDE_MOTOR = 5;
     public static final int ELEVATOR_MOTOR = 7;
-    
+  
     public static final int XBOX_CONTROLER = 0;
     public static final int XBOX_Y = 4;
     public static final int XBOX_X = 3;

@@ -52,6 +52,7 @@ public class DriveWithJoystick extends CommandBase {
   public void end(boolean interrupted) {
     motorSpin.spinningLeftMotor(0.0);
     motorSpin.spinningRightMotor(0.0);
+    motorSpin.differentialTank(0.0, 0.0);
   }
 
   // Returns true when the command should end.

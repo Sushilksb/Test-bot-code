@@ -60,7 +60,14 @@ public class DriveSystem extends SubsystemBase {
 
   public void differentialTank(double leftspeed, double rightspeed)
   {
-    differentialDrive.tankDrive(leftspeed, rightspeed);
+    if (limitSwitch.get())
+    {
+      differentialDrive.tankDrive(leftspeed, rightspeed);
+    }
+    else
+    {
+      differentialDrive.tankDrive(0.0, 0.0);
+    }
   }
 
   public void spinningRightMotor(double speed)
